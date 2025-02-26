@@ -1,2 +1,7 @@
-a = list(range(1, 1000000))
-print(a)
+diem = 0
+s = input()
+if s == "green":
+    diem += 5
+    print("diem + 5")
+else:
+    print("GAME OVER")
