@@ -1,27 +1,23 @@
-
 def doiCs10(s):
-    return int(s, 2)  # Chuyển trực tiếp chuỗi nhị phân sang thập phân
-
+    return int(s, 2)
 
 def doiCs(s, b):
     cs10 = doiCs10(s)
+    if b == 10:
+        return cs10
     if b != 4 and b != 8 and b != 16:
         return ""
+    if cs10 == 0:
+        return "0"
     sb = ""
-    m = 0
-    remainder = cs10
-    while (remainder > 0):
-        if (b > 10):
-            m = remainder % b
-            if (m >= 10):
-                sb = sb + str(chr(55 + m))
-            else:
-                sb = sb + str(m)
+    while cs10 > 0:
+        m = cs10 % b
+        if m >= 10:
+            sb = chr(55 + m) + sb
         else:
-            sb = sb + str(remainder % b)
-        remainder = int(remainder / b)
-    return "".join(reversed(sb))
-
+            sb = str(m) + sb
+        cs10 //= b
+    return sb
 
 for x in range(int(input())):
     b = int(input())
@@ -29,5 +25,4 @@ for x in range(int(input())):
     if b == 2:
         print(s)
     else:
-        print(str(doiCs(s, b)))
-
+        print(doiCs(s, b))
