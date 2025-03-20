@@ -1,33 +1,27 @@
 import math
 
-prime = [1] * 10000005
-mp = {}
-def sieve():
-    prime[0] = prime[1] = 0
-    for i in range(2, int(math.sqrt(10000001))):
-        if prime[i] == 1:
-            for j in range(i * i, 10000005, i):
-                prime[j] = 0
-    for i in range(2, 10000001):
-        if prime[i] == 1:
-            mp[i] = 1
-
-def check(s):
-    reverse_s = s[::-1]
-    sum = 0
-    if int(reverse_s) not in mp and int(s) not in mp:
-        return False
-    else:
-        for i in s:
-            if int(i) not in mp:
-                return False
-            else:
-                sum += int(i)
-        if sum not in mp:
+def nto(n):
+    n = int(n)
+    if n < 2: return False
+    if n == 2: return True
+    if n%2 == 0: return False
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        if n % i == 0:
             return False
     return True
 
-sieve()
+def check(s):
+    sum = 0
+    reverse_s = s[::-1]
+    for i in s:
+        if not nto(i):
+            return False
+        else:
+            sum += int(i)
+    if nto(sum) and nto(reverse_s) and nto(s):
+        return True
+    return False
+
 for i in range(int(input())):
     s = input()
     if check(s):
