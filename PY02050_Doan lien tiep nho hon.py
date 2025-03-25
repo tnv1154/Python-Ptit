@@ -7,4 +7,5 @@ for _ in range(int(input())):
         cnt = 1
         if a[i] >= a[i-1]:
             d[i-1] += cnt
+
     print()
