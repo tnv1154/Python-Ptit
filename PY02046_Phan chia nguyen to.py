@@ -1,4 +1,6 @@
 import math
+
+
 def nto(n):
     if n < 2:
         return False
@@ -26,7 +28,7 @@ for i in range(1, n+1):
 ok = False
 for i in range(n):
     left = pref[i+1]
-    right = pref[n] - pref[i+2]
+    right = pref[n] - pref[i+1]
     if nto(left) and nto(right):
         ok = True
         print(i)
