@@ -5,7 +5,7 @@ class Point:
         self.x = x
         self.y = y
     def distance(self, p):
-        return math.sqrt((self.x - p.x) ** 2 + (self.y - p.y) ** 2)
+        return math.sqrt(pow(self.x - p.x, 2) + pow(self.y - p.y,2))
 
 class Triangle:
     def __init__(self, a, b, c):
@@ -13,14 +13,9 @@ class Triangle:
         self.bc = b.distance(c)
         self.ac = c.distance(a)
     def check(self):
-        # Kiểm tra điều kiện tồn tại tam giác:
-        # 1. Tổng 2 cạnh phải lớn hơn cạnh còn lại
-        # 2. Các cạnh phải khác 0
-        if (self.ab <= 0 or self.bc <= 0 or self.ac <= 0):
+        if self.ab <= 0 or self.bc <= 0 or self.ac <= 0:
             return False
-        if (self.ab + self.bc <= self.ac or 
-            self.bc + self.ac <= self.ab or 
-            self.ab + self.ac <= self.bc):
+        if max([self.ab, self.bc, self.ac])*2 >= self.ab + self.bc + self.ac:
             return False
         return True
     def perimeter(self):
@@ -33,7 +28,7 @@ if __name__ == '__main__':
         c = Point(arr[4], arr[5])
         tamGiac = Triangle(a, b, c)
         if tamGiac.check():
-            print(f"{tamGiac.perimeter():.3f}")
+            print(f"{round(tamGiac.perimeter(), 3):.3f}")
         else:
             print("INVALID")
 
