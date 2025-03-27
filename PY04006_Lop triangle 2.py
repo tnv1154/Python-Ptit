@@ -1,6 +1,4 @@
 import math
-import sys
-
 
 class Point:
     def __init__(self, x, y):
@@ -20,22 +18,20 @@ class Triangle:
         if max([self.ab, self.bc, self.ac])*2 >= self.ab + self.bc + self.ac:
             return False
         return True
-    def perimeter(self):
-        return self.ab + self.bc + self.ac
+    def area(self):
+        dientich = 0.25 * math.sqrt((self.ab + self.bc + self.ac) *
+                                    (-self.ac + self.ab + self.bc) *
+                                    (-self.ab + self.bc + self.ac) *
+                                    (-self.bc + self.ac + self.ab) )
+        return dientich
 if __name__ == '__main__':
-
-    i = 1
-    inputs = sys.stdin.read().split()
-    for test in range(int(inputs[0])):
-        Ax, Ay, Bx, By, Cx, Cy = map(float, inputs[i:i + 6])
-        i += 6
-        a = Point(Ax, Ay)
-        b = Point(Bx, By)
-        c = Point(Cx, Cy)
+    for _ in range(int(input())):
+        arr = list(map(float, input().split()))
+        a = Point(arr[0], arr[1])
+        b = Point(arr[2], arr[3])
+        c = Point(arr[4], arr[5])
         tamGiac = Triangle(a, b, c)
         if tamGiac.check():
-            print(f"{round(tamGiac.perimeter(), 3):.3f}")
+            print(f"{round(tamGiac.area(), 2):.2f}")
         else:
             print("INVALID")
-
-
