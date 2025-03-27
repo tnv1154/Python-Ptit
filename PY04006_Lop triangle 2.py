@@ -1,4 +1,6 @@
 import math
+import sys
+
 
 class Point:
     def __init__(self, x, y):
@@ -25,13 +27,18 @@ class Triangle:
                                     (-self.bc + self.ac + self.ab) )
         return dientich
 if __name__ == '__main__':
-    for _ in range(int(input())):
-        arr = list(map(float, input().split()))
-        a = Point(arr[0], arr[1])
-        b = Point(arr[2], arr[3])
-        c = Point(arr[4], arr[5])
+    """Các tọa độ có thể nằm trên nhiều dòng và lẫn lộn giữa các test case sao cho tổng số tọa độ vẫn đủ theo số test case"""
+    i = 1
+    inputs = sys.stdin.read().split()  # Đọc hết input đầu vào và lưu vào mảng
+    for test in range(int(inputs[0])):
+        Ax, Ay, Bx, By, Cx, Cy = map(float, inputs[i:i + 6])
+        i += 6
+        a = Point(Ax, Ay)
+        b = Point(Bx, By)
+        c = Point(Cx, Cy)
         tamGiac = Triangle(a, b, c)
         if tamGiac.check():
             print(f"{round(tamGiac.area(), 2):.2f}")
         else:
             print("INVALID")
+

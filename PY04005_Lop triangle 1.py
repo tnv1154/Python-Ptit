@@ -23,9 +23,9 @@ class Triangle:
     def perimeter(self):
         return self.ab + self.bc + self.ac
 if __name__ == '__main__':
-
+    """Các tọa độ có thể nằm trên nhiều dòng và lẫn lộn giữa các test case sao cho tổng số tọa độ vẫn đủ theo số test case"""
     i = 1
-    inputs = sys.stdin.read().split()
+    inputs = sys.stdin.read().split() # Đọc hết input đầu vào và lưu vào mảng
     for test in range(int(inputs[0])):
         Ax, Ay, Bx, By, Cx, Cy = map(float, inputs[i:i + 6])
         i += 6
