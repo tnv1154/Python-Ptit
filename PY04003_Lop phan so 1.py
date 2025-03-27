@@ -1,16 +1,18 @@
 
-def gcd(a, b):
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a % b)
 
 class PhanSo:
     def __init__(self, tu, mau):
         self.tu = tu
         self.mau = mau
+    @staticmethod
+    def gcd(a, b):
+        if b == 0:
+            return a
+        else:
+            return PhanSo.gcd(b, a % b)
+
     def rutGon(self):
-        ucln = gcd(self.tu, self.mau)
+        ucln = PhanSo.gcd(self.tu, self.mau)
         self.tu /= ucln
         self.mau /= ucln
 
