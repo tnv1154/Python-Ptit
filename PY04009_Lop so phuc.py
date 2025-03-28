@@ -1,3 +1,5 @@
+import sys
+
 
 class SoPhuc:
     def __init__(self, thuc, ao):
@@ -5,4 +7,6 @@ class SoPhuc:
         self.ao = ao
 
 
-if
+if __name__ == '__main__':
+    inputs = sys.stdin.read().split()
+
