@@ -9,7 +9,14 @@ def check(s):
             return False
     if cnt != 3:
         return False
-
+    a = s.split(".")
+    for x in a:
+        if len(x) == 0 :
+            return False
+        tmp = int(x)
+        if tmp > 255 or tmp < 0:
+            return False
+    return True
 
 for _ in range(int(input())):
     s = input().strip()
