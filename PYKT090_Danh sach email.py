@@ -11,4 +11,3 @@ with open("File/CONTACT.in") as f:
 
 for x in a:
     print(x)
-
