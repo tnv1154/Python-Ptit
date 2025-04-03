@@ -17,3 +17,4 @@ while True:
         if check(i, n):
             cnt += 1
     print(cnt)
+
