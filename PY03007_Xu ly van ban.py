@@ -9,7 +9,7 @@ while True:
 
 for i in f:
     i = i.lower().strip()
-    line = re.split(r'[!.?]+', i)
+    line = re.split('[!.?]+', i)
     a = []
     for i in line:
         b = i.strip().split()
