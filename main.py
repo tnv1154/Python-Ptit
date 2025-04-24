@@ -2,8 +2,9 @@ from datetime import datetime
 
 start = input()
 end = input()
-start_time = datetime.strptime(start, "%H:%M")
-end_time = datetime.strptime(end, "%H:%M")
+start_time = datetime.strptime(start, "%d/%m/%Y")
+end_time = datetime.strptime(end, "%d/%m/%Y")
+
 time = end_time - start_time
-time = time.total_seconds() / 3600
+time = time.total_seconds() / (60 * 60 * 24)
 print(time)
