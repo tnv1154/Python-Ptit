@@ -1,8 +1,8 @@
 
 class GiaoVien:
     def __init__(self, id, ten, ma, tin, chuyenMon):
-        self.ten = " ".join(ten.split(ten.title()))
-        self.id = f"GV{id}:02d"
+        self.ten = " ".join(ten.title().split())
+        self.id = f"GV{id:02d}"
         if ma[0] == "A":
             self.mon = "TOAN"
         elif ma[0] == "B":
@@ -28,4 +28,19 @@ class GiaoVien:
     def __str__(self):
         return f"{self.id} {self.ten} {self.mon} {round(self.tong, 1)} {self.ketQUa}"
 
+def main():
+    arr = []
+    for i in range(int(input())):
+        ten = input()
+        ma = input()
+        tin = float(input())
+        chuyenMon = float(input())
+        gv = GiaoVien(i + 1, ten, ma, tin, chuyenMon)
+        arr.append(gv)
 
+    arr.sort(key = lambda x : -x.tong)
+    for gv in arr:
+        print(gv)
+
+if __name__ == "__main__":
+    main()
