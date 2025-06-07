@@ -19,10 +19,11 @@ def server_program():
     print(f"Server phan hoi: {data_s}")
     print(f"Server bam thong diep thanh: {sv_hash}")
     if data_hash != sv_hash:
-        data_s = "Thong diep nhan  lai khong con toan ven"
+        data_s = "The received message has lost its integrity"
     conn.send(data_s.encode())
     conn.close()
 
 if __name__ == "__main__":
     print("Server is running...")
     server_program()
+
