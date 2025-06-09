@@ -4,14 +4,11 @@ for x in range(int(input())):
     remainder = n
     sb = ""
     while remainder > 0:
-        if b > 10:
-            m = remainder % b
-            if m >= 10:
-                sb = sb + chr(int(m) + ord("A") - 10)
-            else:
-                sb = sb + str(m)
+        m = remainder % b
+        if m >= 10:
+            sb = sb + chr(m + ord("A") - 10)
         else:
-            sb = sb + str(remainder % b)
+            sb = sb + str(m)
         remainder = int(remainder / b)
     sb = "".join(reversed(sb))
     print(sb)
