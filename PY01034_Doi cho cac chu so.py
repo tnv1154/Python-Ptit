@@ -2,7 +2,7 @@
 def mind(s, i):
     tmp = i
     for j in range(i+1, len(s)):
-        if int(s[j]) < int(s[i]):
+        if s[j] < s[i]:
             if tmp == i:
                 tmp = j
             elif s[tmp] < s[j]:
