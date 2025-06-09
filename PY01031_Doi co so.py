@@ -6,9 +6,9 @@ for x in range(int(input())):
     while remainder > 0:
         m = remainder % b
         if m >= 10:
-            sb = sb + chr(m + ord("A") - 10)
+            sb += chr(m + ord("A") - 10)
         else:
-            sb = sb + str(m)
+            sb += str(m)
         remainder = int(remainder / b)
-    sb = "".join(reversed(sb))
+    sb = sb[::-1]
     print(sb)
